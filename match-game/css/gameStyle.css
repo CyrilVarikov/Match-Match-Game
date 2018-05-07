@@ -1,0 +1,241 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face { 
+    font-family: "Titan-One"; 
+    src: local("TitanOne"), url('../fonts/TitanOne-Regular.ttf'); 
+} 
+
+@font-face { 
+    font-family: "Signika-Light"; 
+    src: local("SignikaLight"), url('../fonts/Signika-Light.ttf'); 
+} 
+
+
+@font-face { 
+    font-family: "Signika-Regular"; 
+    src: local("SignikaRegular"), url('../fonts/Signika-Regular.ttf'); 
+} 
+
+
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main > section:first-child{
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1500px;
+    height: 600px;
+}
+
+.fieldForCard{
+    width: 1100px;
+    height: 600px;
+    background: #ffffff;
+    border-radius: 20px;
+    
+}
+
+.fieldForCard > figure{
+    width: 1100px;
+    height: 600px;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: space-around;
+    justify-content: space-around;
+}
+
+.fieldForCard > figure img{
+    border-radius: 10px;
+    border: 1px solid #5a2341;
+    opacity: 1;
+}
+
+.fieldForCard > figure img:hover{
+    cursor: pointer;
+    border: 3px solid #5a2341;
+}
+
+.optionalInfo{
+    width: 350px;
+    height: 600px;
+    background: #ffffff;
+    border-radius: 20px;
+}
+
+
+.flip > .font{
+    position: absolute;
+    transform: perspective(600px) rotateY( 0deg );
+    backface-visibility: hidden;
+    transition: transform .5s linear 0s;
+}
+
+.flip > .back{
+    position: absolute;
+    transform: perspective(600px) rotateY( 180deg );
+    backface-visibility: hidden;
+    transition: transform .5s linear 0s;
+}
+
+.timer{
+    width: 350px;
+    height: 100px;
+    text-align: center;
+}
+
+.timer > span{
+    font-family: "Signika-Regular"; 
+    font-size: 50px;
+    line-height: 100px;
+    color: #5a2341;
+}
+
+
+.records{
+    width: 350px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.records h2{
+    font-size: 30px;
+    color: #5a2341
+}
+
+
+table {
+    font-family: "Signika-Light"; 
+    font-size: 14px;
+    border-radius: 10px;
+    border-spacing: 0;
+    text-align: center;
+    margin: 10px auto;
+}
+
+th {
+    background: #BCEBDD;
+    color: rgb(116, 116, 116);
+    padding: 10px 20px;
+}
+
+th, td {
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    border-color: white;
+}
+
+th:first-child {
+    border-top-left-radius: 10px;
+}
+
+th:last-child {
+    border-top-right-radius: 10px;
+    border-right: none;
+}
+
+td {
+    padding: 10px 20px;
+    background: #F8E391;
+}
+
+tr:last-child td:first-child {
+    border-radius: 0 0 0 10px;
+}
+
+tr:last-child td:last-child {
+    border-radius: 0 0 10px 0;
+}
+
+tr td:last-child {
+    border-right: none;
+}
+
+
+ /*  Button */
+.button-reset{
+    border: 2px solid #520f3b;
+    border-radius: 20px;
+    font-size: 15px;
+    color: #520f3b;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    font-family: "Signika-Regular";
+    position: relative;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.button-restart{
+    border: 3px solid #520f3b;
+    border-radius: 20px;
+    font-size: 30px;
+    color: #520f3b;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-family: "Signika-Regular";
+    position: relative;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.button-restart::before,
+.button-restart::after,
+.button-reset::before,
+.button-reset::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #6e3159;
+    top: 0;
+    left: -100%;
+    opacity: 0.5;
+    transition: 0.3s;
+    z-index: -1;
+}
+
+.button-restart::after,
+.button-reset::after{
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+
+.button-restart:hover,
+.button-reset:hover{
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.button-restart:hover::before,
+.button-restart:hover::after,
+.button-reset:hover::before,
+.button-reset:hover::after{
+    left: 0;
+    z-index: -1;
+}
+
+

@@ -1,0 +1,138 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face { 
+    font-family: "Titan-One"; 
+    src: local("TitanOne"), url('../fonts/TitanOne-Regular.ttf'); 
+} 
+
+@font-face { 
+    font-family: "Signika-Light"; 
+    src: local("SignikaLight"), url('../fonts/Signika-Light.ttf'); 
+} 
+
+
+@font-face { 
+    font-family: "Signika-Regular"; 
+    src: local("SignikaRegular"), url('../fonts/Signika-Regular.ttf'); 
+} 
+
+
+
+
+body{
+    background: url(../images/welcome-page/bg.jpg);
+}
+
+h1{
+    font-family: "Titan-One";
+    font-size: 70px;
+    text-align: center;
+    color: #801550;
+}
+
+main > section{
+    margin: 0 auto;
+    display: flex;
+    width: 1300px;
+    height: 600px;
+    justify-content: space-between;
+}
+
+main > section > section:first-child {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 20px;
+    width: 500px;
+    height: 500px;  
+    justify-content: space-between;
+}
+
+article p{
+    margin: 10px 15px;
+    font-family: "Signika-Light";
+    font-size: 20px;
+    color: #662f4d;
+}
+
+article h2{
+    font-family: "Signika-Regular";
+    font-size: 30px;
+    color: #5a2341;
+}
+
+article ol{
+    margin: 10px 35px;
+    font-family: "Signika-Light";
+    font-size: 20px;
+    color: #662f4d;
+}
+
+main > section > section:last-child{
+    margin: 500px 10px 0 0;
+}
+
+.button-next{
+    border: 3px solid #520f3b;
+    border-radius: 20px;
+    font-size: 30px;
+    color: #520f3b;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-family: "Signika-Regular";
+    position: relative;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.button-next::before,
+.button-next::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #6e3159;
+    top: 0;
+    left: -100%;
+    opacity: 0.5;
+    transition: 0.3s;
+    z-index: -1;
+}
+
+.button-next::after{
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+
+.button-next:hover{
+    color: #ffffff;
+}
+
+.button-next:hover::before,
+.button-next:hover::after{
+    left: 0;
+}
+
+.pulse{
+    background-color: #6e3159;
+    border-radius: 50%;
+    animation: pulse 0.7s ease-out;
+    transform: scale(0);
+    position: absolute;
+}
+
+@keyframes pulse{
+    to{
+        transform: scale(2);
+        background-color: #ffffff;
+        opacity: 0;
+    }
+}

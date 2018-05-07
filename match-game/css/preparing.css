@@ -1,0 +1,233 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face { 
+    font-family: "Titan-One"; 
+    src: local("TitanOne"), url('../fonts/TitanOne-Regular.ttf'); 
+} 
+
+@font-face { 
+    font-family: "Signika-Light"; 
+    src: local("SignikaLight"), url('../fonts/Signika-Light.ttf'); 
+} 
+
+
+@font-face { 
+    font-family: "Signika-Regular"; 
+    src: local("SignikaRegular"), url('../fonts/Signika-Regular.ttf'); 
+} 
+
+
+
+.notification{
+    width: 350px;
+    height: 130px;
+    position: fixed;
+    top: 0;
+    left: 38%;
+    background: rgb(75, 170, 214);
+    border-radius: 5px;
+    color: rgb(59, 58, 58);
+}
+
+
+
+.close {
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+    opacity: 0.6;
+    }
+
+.close:hover {
+    opacity: 1;
+}
+
+.notification > article{
+    width: 290px;
+    height: 90px;
+    margin: 10px auto;
+    overflow: hidden;
+    font-family: "Signika-Regular";
+    font-size: 25px;
+    color: #5a2341;
+    text-align: center;
+}
+
+
+body{
+    background: url(../images/welcome-page/bg.jpg);
+}
+
+h1{
+    font-family: "Titan-One";
+    font-size: 70px;
+    text-align: center;
+    color: #801550;
+}
+
+main > section:first-child{
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    height: 300px;
+    margin: 40px auto;
+}
+
+.skirts > figure{
+    display: flex;
+    justify-content: space-around;
+    width: 450px;
+    height: 200px;
+    align-items: center;
+}
+
+main h2{
+    font-family: "Signika-Regular";
+    font-size: 30px;
+    color: #5a2341;
+    text-align: center;
+}
+
+.skirts > figure img{
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.skirts > figure img:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.registration{
+    width: 300px;
+}
+
+.registration > form{
+    display: flex;
+    flex-direction: column;
+    width: 197px;
+    height: 130px;
+    justify-content: space-between;
+    margin: 10px 0 0 20px;
+}
+
+.registration > form > label{
+    font-family: "Signika-Regular";
+    font-size: 15px;
+    color: #5a2341;
+}
+
+.registration > form input{
+    border-radius: 5px;
+    border: none;
+    height: 18px;
+}
+
+.registration > form input:focus{
+    outline: none;
+}
+
+.game-difficulty{
+    width: 300px;
+}
+
+.game-difficulty > section{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;    
+}
+
+.game-difficulty > section > span{
+    display: block;
+    width: 120px;
+    height: 30px;
+    background: #801550;
+    color: #ffffff;
+    border-radius: 20px;
+    line-height: 30px;
+    text-align: center;
+    font-family: "Signika-Light";
+}
+
+.game-difficulty > section > span:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+
+main > section:last-child{
+    width: 200px;
+    height: 50px;
+    margin: 10px auto;
+}
+
+.button-play{
+    border: 3px solid #520f3b;
+    border-radius: 20px;
+    font-size: 30px;
+    color: #520f3b;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-family: "Signika-Regular";
+    position: relative;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.button-play::before,
+.button-play::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #6e3159;
+    top: 0;
+    left: -100%;
+    opacity: 0.5;
+    transition: 0.3s;
+    z-index: -1;
+}
+
+.button-play::after{
+    opacity: 1;
+    transition-delay: 0.2s;
+}
+
+.button-play:hover{
+    color: #ffffff;
+}
+
+.button-play:hover::before,
+.button-play:hover::after{
+    left: 0;
+}
+
+.pulse{
+    background-color: #6e3159;
+    border-radius: 50%;
+    animation: pulse 0.7s ease-out;
+    transform: scale(0);
+    position: absolute;
+}
+
+@keyframes pulse{
+    to{
+        transform: scale(2);
+        background-color: #ffffff;
+        opacity: 0;
+    }
+}
