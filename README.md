@@ -12,8 +12,8 @@ The game is a set of pairs of identical cards, which before the beginning of the
 and unfolded in rows "shirt" (back side) up. Your task is to find all the pairs as quickly as possible.
 
 ### Rules of the game:
-1.Select two cards to try to match the pictures
-2.If you match the pictures you can go again
-3.If they don't match it's the computer turn them
-4.To win, you must find all the pairs
-5.Good luck and Have fun!
+1. Select two cards to try to match the pictures
+2. If you match the pictures you can go again
+3. If they don't match it's the computer turn them
+4. To win, you must find all the pairs
+5. Good luck and Have fun!
