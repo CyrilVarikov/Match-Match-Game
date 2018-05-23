@@ -66,6 +66,8 @@ main > section:first-child{
     border: 3px solid #5a2341;
 }
 
+
+
 .optionalInfo{
     width: 350px;
     height: 600px;
@@ -126,8 +128,8 @@ table {
 }
 
 th {
-    background: #BCEBDD;
-    color: rgb(116, 116, 116);
+    background: #bcebdd;
+    color: #747474;
     padding: 10px 20px;
 }
 

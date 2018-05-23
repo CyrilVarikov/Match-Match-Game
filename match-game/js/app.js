@@ -1,10 +1,10 @@
 const skirts = document.querySelector('#skirt');
 const difficulty = document.querySelector('#difficulty');
-const button = document.querySelector('#button');
+const button = document.querySelector('#button-play');
 
 //notification
 const notification = document.querySelector('#notification');
-const textNotification = document.querySelector('#articleForNotification');
+const textNotification = document.querySelector('#article-for-notification');
 const closeNotification = document.querySelector('#close-notification');
 textNotification.textContent = 'Please, input information about you, choose skirt and difficulty-game!';
 
@@ -12,26 +12,28 @@ let skirtSrc = '';
 let complexity = '';
 
 
-closeNotification.addEventListener('click', (e) => {
+closeNotification.addEventListener('click', () => {
     notification.hidden = true;
 });
 
 skirt.addEventListener('click', (e) => {
+    const parent = e.target.parentElement;
     if(e.target.tagName === 'IMG'){ 
-        for (let i = 0; i < e.target.parentElement.children.length; i++) {
-            e.target.parentElement.children[i].style.removeProperty('border');                   
+        for (let i = 0; i < parent.children.length; i++) {
+            parent.children[i].classList.toggle('skirts-border', false);                  
         }
-        e.target.style.border = '2px solid red';
+        e.target.classList.toggle('skirts-border');
         skirtSrc = e.target.getAttribute('src');                
     }
 });
 
 difficulty.addEventListener('click', (e) => {
+    const parent = e.target.parentElement;
     if(e.target.tagName === 'SPAN'){ 
-        for (let i = 0; i < e.target.parentElement.children.length; i++) {
-            e.target.parentElement.children[i].style.removeProperty('border');                   
+        for (let i = 0; i < parent.children.length; i++) {
+           parent.children[i].classList.toggle('difficulty-border', false);                   
         }
-        e.target.style.border = '2px solid #240f1a';
+        e.target.classList.add('difficulty-border');
         complexity = e.target.textContent[0];                                
     }
 });
@@ -55,14 +57,13 @@ const pulse = function(e, button){
     button.appendChild(addSection);
 }
 
-
+const firstName = document.querySelector('#firstName');
+const lastName = document.querySelector('#lastName');
+const email = document.querySelector('#email');
 
 button.addEventListener('click', (e) => {
     pulse(e, button);
-    const firstName = document.querySelector('#firstName');
-    const lastName = document.querySelector('#lastName');
-    const email = document.querySelector('#email');
-
+    
     if (!firstName.value  || !lastName.value || !email.value || 
             !complexity || !skirtSrc) {
 
@@ -108,7 +109,7 @@ button.addEventListener('click', (e) => {
 
         const table = tableOfRecords.createTable();
 
-        tableOfRecords.filloutTable(table);
+        tableOfRecords.fillOutTable(table);
         
 
         const workingTimer = timer.startTime();

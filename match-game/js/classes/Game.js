@@ -60,49 +60,6 @@ class Game {
 
     waitClick(complexity, workingTimer, clock, cardsField){
 
-        const getLocalStorage = function(){
-            let storage = [];
-            for (let i = 0; i < localStorage.length; i++) {
-               storage.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-            }
-            return storage;
-        }
-
-        const updateLocalStorage = function(storage, user){
-            
-            storage.push(user);               
-            const complexityObj = {
-                'L' : 0,
-                'M' : 1,
-                'H' : 2
-            }
-
-            storage.sort((a, b) => {
-                if (complexityObj[a.complexity] > complexityObj[b.complexity]) {
-                    return -1;
-                } else if(complexityObj[a.complexity] < complexityObj[b.complexity]) {
-                    return 1;
-                }else{
-                    let aTimes = a.time.split(':');
-                    aTimes = aTimes.map(elem => +elem);
-                    let bTimes = b.time.split(':');
-                    bTimes = bTimes.map(elem => +elem);
-                    if (bTimes[0] < aTimes[0] || bTimes[1] < aTimes[1] || bTimes[2] < aTimes[2]) {
-                        return -1;
-                    }else{
-                        return 1;
-                    }
-                }
-            });
-            
-            const length = (storage.length < 10?storage.length:10)
-            localStorage.clear();
-            for (let i = 0; i < length; i++) {
-                localStorage.setItem(storage[i].email, JSON.stringify(storage[i]));
-            }   
-        }
-
-
         let clickCounter = 0;
         let prevEl;
         cardsField.addEventListener('click', (e) => {
@@ -144,9 +101,10 @@ class Game {
                                     if (complexity=== 0) {
                                         clearInterval(workingTimer);
                                         this.infoAboutUser['time'] = clock.textContent;
-                                        const storage = getLocalStorage();
+                                        const storage = new LocalStorage();
                                         
-                                        updateLocalStorage(storage, this.infoAboutUser);
+                                        let storageData = storage.getLocalStorage();
+                                        storage.updateLocalStorage(this.infoAboutUser);
 
                                         this.notification.hidden = false;
                                     }

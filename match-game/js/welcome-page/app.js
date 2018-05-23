@@ -1,4 +1,4 @@
-const button = document.querySelector('#button');
+const button = document.querySelector('#button-play');
 
 button.addEventListener('click', (e) => {
     const addSection = document.createElement('section');

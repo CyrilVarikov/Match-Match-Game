@@ -61,45 +61,23 @@ class TableOfRecords{
 
     }
 
-    filloutTable(table) {
-        const getLocalStorage = function(){
-            let storage = [];
-            for (let i = 0; i < localStorage.length; i++) {
-               storage.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
-            }
-            return storage;
-        }
-        
+    fillOutTable(table) {
+ 
         const complexityObj = {
             'L' : 0,
             'M' : 1,
             'H' : 2
         }
 
-        const storage = getLocalStorage();
+        const storage = new LocalStorage();
     
-        storage.sort((a, b) => {
-            if (complexityObj[a.complexity] > complexityObj[b.complexity]) {
-                return -1;
-            } else if(complexityObj[a.complexity] < complexityObj[b.complexity]) {
-                return 1;
-            }else{
-                let aTimes = a.time.split(':');
-                aTimes = aTimes.map(elem => +elem);
-                let bTimes = b.time.split(':');
-                bTimes = bTimes.map(elem => +elem);
-                if (bTimes[0] <= aTimes[0] && bTimes[1] <= aTimes[1] && bTimes[2] <= aTimes[2]) {
-                    return 1;
-                }else{
-                    return -1;
-                }
-            }
-        });
+        let storageData = storage.getLocalStorage();
+        storageData = storage.sortStorage();
 
         table.removeChild(table.lastChild);
         const tbody = document.createElement('tbody');
         
-        storage.forEach(elem => {
+        storageData.forEach(elem => {
             const trBody = document.createElement('tr');
             const tdName = document.createElement('td');
             const tdTime = document.createElement('td');

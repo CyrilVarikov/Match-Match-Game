@@ -105,6 +105,14 @@ main h2{
     cursor: pointer;
 }
 
+.skirts-border{
+    border: 2px solid #ff0000;
+}
+
+.difficulty-border{
+    border: 2px solid #240f1a;
+}
+
 .registration{
     width: 300px;
 }
